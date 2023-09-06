@@ -31,3 +31,8 @@ pip install django==2.2 -U
 ```
 django-admin startproject name .
 ```
+
+* Creacion de app
+```
+python manage.py startapp posts
+```

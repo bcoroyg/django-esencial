@@ -29,12 +29,16 @@ ALLOWED_HOSTS = []
 # CUALES SON LAS APLICACIONES QUE SE ENCUENTRAN LIGADAS AL PROYECTO
 
 INSTALLED_APPS = [
+    # DJANGO APPS
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # LOCAL APPS
+    'posts'
 ]
 
 MIDDLEWARE = [
