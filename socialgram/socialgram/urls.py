@@ -7,13 +7,10 @@ es más común delegar algo del mapeo a las propias aplicaciones.
 
 
 from django.urls import path
-from django.http import HttpResponse
+from socialgram import views
 
-# Una vista en DJANGO es una función
-def hello_world(request):
-    'Return a greeting.'
-    return HttpResponse('Hello, World!')
 
 urlpatterns = [
-    path('hello-world', hello_world)
+    path('hello-world/', views.hello_world),
+    path('hi/', views.hi)
 ]
