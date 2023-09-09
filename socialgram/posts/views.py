@@ -1,7 +1,8 @@
 '''Posts views'''
 
 # DJANGO
-from django.shortcuts import HttpResponse
+# from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
 # UTILITIES
 from datetime import datetime
@@ -11,84 +12,115 @@ now=datetime.now().strftime('%b %dth, %Y - %H:%M hrs')
 posts = [
     {
         "id":1,
-        "name":"Hammad",
-        "user":"Fears",
+        "title":"Hammad",
+        "user": { 
+            "name":"Fears",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/231x100.png/5fa2dd/ffffff"
+        "photo":"https://picsum.photos/id/231/300/300"
     },
     {
         "id":2,
-        "name":"Bendite",
-        "user":"Greenhouse",
+        "title":"Bendite",
+        "user": { 
+            "name":"Greenhouse",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/204x100.png/ff4444/ffffff"
+        "photo":"https://picsum.photos/id/232/300/300"
     },
     {
         "id":3,
-        "name":"Rafaelita",
-        "user":"Balma",
+        "title":"Rafaelita",
+        "user": { 
+            "name":"Balma",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/158x100.png/cc0000/ffffff"
+        "photo":"https://picsum.photos/id/233/300/300"
     },
     {
         "id":4,
-        "name":"Madelin",
-        "user":"Vlasenko",
+        "title":"Madelin",
+        "user": { 
+            "name":"Vlasenko",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/183x100.png/ff4444/ffffff"
+        "photo":"https://picsum.photos/id/234/300/300"
     },
     {
         "id":5,
-        "name":"Keith",
-        "user":"Sergean",
+        "title":"Keith",
+        "user": { 
+            "name":"Sergean",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/151x100.png/cc0000/ffffff"
+        "photo":"https://picsum.photos/id/235/300/300"
     },
     {
         "id":6,
-        "name":"Gilligan",
-        "user":"Burchett",
+        "title":"Gilligan",
+        "user": { 
+            "name":"Burchett",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/163x100.png/5fa2dd/ffffff"
+        "photo":"https://picsum.photos/id/236/300/300"
     },
     {
         "id":7,
-        "name":"Tracey",
-        "user":"Bevir",
+        "title":"Tracey",
+        "user": { 
+            "name":"Bevir",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/208x100.png/dddddd/000000"
+        "photo":"https://picsum.photos/id/237/300/300"
     },
     {
         "id":8,
-        "name":"Fidela",
-        "user":"Krystof",
+        "title":"Fidela",
+        "user": { 
+            "name":"Krystof",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/163x100.png/ff4444/ffffff"
+        "photo":"https://picsum.photos/id/238/300/300"
     },
     {
         "id":9,
-        "name":"Bree",
-        "user":"Sculpher",
+        "title":"Bree",
+        "user": { 
+            "name":"Sculpher",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/107x100.png/cc0000/ffffff"
+        "photo":"https://picsum.photos/id/239/300/300"
     },
     {
         "id":10,
-        "name":"Viviene",
-        "user":"Lowry",
+        "title":"Viviene",
+        "user": { 
+            "name":"Lowry",
+            "picture":"https://loremflickr.com/g/50/50/boy/all"
+        },
         "timestamp":now,
-        "picture":"http://dummyimage.com/229x100.png/dddddd/000000"
+        "photo":"https://picsum.photos/id/240/300/300"
     }
 ]
 
 
 def list_posts(request):
     '''List existing posts'''
-    content = []
+    """ content = []
     for post in posts:
         content.append('''
             <p><strong>{name}</strong></p>
             <p><small>{user} - <i>{timestamp}</i></small></p>
             <figure><img src="{picture}"/></figure>
         '''.format(**post))
-    return HttpResponse('<br>'.join(content))
+    return HttpResponse('<br>'.join(content)) """
+    return render(request, 'feed.html', {'posts':posts})
