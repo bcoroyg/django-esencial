@@ -36,3 +36,11 @@ django-admin startproject name .
 ```
 python manage.py startapp posts
 ```
+
+## PATRONES DE DISEÑO
+* Es una solución reutilizable a un problema común
+
+### MTV
+* **MODEL** → Define la estructura de los datos.
+* **TEMPLATE** → Es la lógica de presentación de datos
+* **VIEW** → Es el encargado de traer los datos y pasarlos al template
