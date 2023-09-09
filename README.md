@@ -44,3 +44,20 @@ python manage.py startapp posts
 * **MODEL** → Define la estructura de los datos.
 * **TEMPLATE** → Es la lógica de presentación de datos
 * **VIEW** → Es el encargado de traer los datos y pasarlos al template
+
+## MIGRACIONES
+* Ejecutar migraciones
+```
+python manage.py migrate
+```
+
+* Migracion de modelos
+```
+python manage.py makemigrations
+```
+
+## SHELL DJANGO
+* Shell
+```
+python manage.py shell
+```
