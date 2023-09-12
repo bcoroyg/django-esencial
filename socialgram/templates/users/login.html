@@ -6,17 +6,20 @@
 
 {% block container %} 
 
-  {% if error %}
-  <p class="text-danger">{{ error }}</p>
-  {% endif%}
-
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
 
-    <input type="text" placeholder="Username" name="username" />
-    <input type="password" placeholder="Password" name="password" />
-
-    <button type="submit">Sign in!</button>
+    <div class="form-group">
+      <input class="form-control rounded-0" type="text" placeholder="Username" name="username" />
+    </div>
+    
+    <div class="form-group">
+      <input class="form-control rounded-0" type="password" placeholder="Password" name="password" />
+    </div>
+    {% if error %}
+      <p class="alert alert-danger">{{ error }}</p>
+    {% endif%}
+    <button class="btn btn-primary btn-block mt-2 rounded-0" type="submit">Sign in!</button>
   </form>
 
 {% endblock %}
