@@ -12,10 +12,38 @@ from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
 from users.models import Profile
 
+# Forms
+from users.forms import ProfileForm
 
 def update_profile_view(request):
     """Update a user's profile view."""
-    return render(request, 'users/update_profile.html')
+
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+
+            profile.website = data['website']
+            profile.phone_number = data['phone_number']
+            profile.biography = data['biography']
+            profile.picture = data['picture']
+            profile.save()
+
+            return redirect('update_profile')
+    else:
+        form = ProfileForm()
+
+    return render(
+        request=request,
+        template_name='users/update_profile.html',
+        context={
+            'profile': profile,
+            'user': request.user,
+            'form': form
+        }
+    )
 
 # Create your views here.
 def login_view(request):
@@ -32,8 +60,8 @@ def login_view(request):
             return redirect('feed')
         else:
             return render(request, 'users/login.html', 
-                          {'error': 'Invalid username or password'}
-                    )   
+                          {'error': 'Invalid username or password'})
+           
     return render(request, 'users/login.html')
 
 def signup_view(request):
@@ -50,7 +78,9 @@ def signup_view(request):
         try:
             user = User.objects.create_user(username=username, password=passwd)
         except IntegrityError:
-            return render(request, 'users/signup.html', {'error': 'Username is already in user'})
+            return render(request, 
+                          'users/signup.html', 
+                          {'error': 'Username is already in user'})
 
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
