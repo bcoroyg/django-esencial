@@ -1,5 +1,5 @@
 """ 
-Platzigram URLs module.
+Socialgram URLs module.
 Configuracion de urls del Proyecto
 Define los mapeos url-vistas. A pesar de que éste podría contener todo el código del mapeo url,
 es más común delegar algo del mapeo a las propias aplicaciones.
@@ -25,4 +25,5 @@ urlpatterns = [
     path('users/login/', users_views.login_view, name='login'),
     path('users/logout/', users_views.logout_view, name='logout'),
     path('users/signup/', users_views.signup_view, name='signup'),
+    path('users/me/profile/', users_views.update_profile_view, name='update_profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
