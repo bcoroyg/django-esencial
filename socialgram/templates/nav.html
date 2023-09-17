@@ -4,7 +4,7 @@
     <a
       class="navbar-brand pr-5"
       style="border-right: 1px solid #efefef"
-      href=""
+      href="{% url 'feed' %}"
     >
       <img src="{% static 'img/instagram.png' %}" height="45"
       class="d-inline-block align-top"/>
@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a href="">
+          <a href="{% url 'update_profile' %}">
             <img
               src="{% static 'img/default-profile.png' %}"
               height="35"
