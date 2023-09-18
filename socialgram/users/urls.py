@@ -11,8 +11,8 @@ urlpatterns = [
     # Posts
     path(
         route='<str:username>/',
-        view=TemplateView.as_view(template_name='users/detail.html'),
-        name='detail',
+        view=views.UserDetailView.as_view(),
+        name='detail'
     ),
     # Management
     path(
