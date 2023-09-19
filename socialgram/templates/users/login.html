@@ -16,8 +16,10 @@
     <div class="form-group">
       <input class="form-control rounded-0" type="password" placeholder="Password" name="password" />
     </div>
-    {% if error %}
-      <p class="alert alert-danger">{{ error }}</p>
+    {% if form.errors %}
+      <p class="alert alert-danger">
+        Your username or password didn't match. Please try again.
+      </p>
     {% endif%}
     <button class="btn btn-primary btn-block mt-2 rounded-0" type="submit">Sign in!</button>
   </form>
