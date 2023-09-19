@@ -2,6 +2,7 @@
 
 # DJANGO
 from django.urls import path
+from django.views.generic import TemplateView
 
 # VIEWS
 from posts import views
@@ -21,5 +22,10 @@ urlpatterns = [
         route='posts/<int:pk>/',
         view=views.PostDetailView.as_view(),
         name='detail'
+    ),
+    path(
+        route='posts/featured/',
+        view=TemplateView.as_view(template_name='posts/featured.html'),
+        name='featured'
     )
 ]
