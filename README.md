@@ -61,3 +61,13 @@ python manage.py makemigrations
 ```
 python manage.py shell
 ```
+
+## REQUIREMENTS
+* Crear archivo requirements.txt.
+```
+python -m pip freeze > requirements.txt
+``` 
+* Instalación de paquetes de requirements.txt
+```
+pip install -r requirements.txt
+```
